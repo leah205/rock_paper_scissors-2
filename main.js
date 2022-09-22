@@ -33,7 +33,7 @@ function checkWin(player, opponent){
     else if(player == 'scissors' && opponent == 'paper'){
         return true;
     }
-    else{
+    else {
         return false;
     }
 
@@ -63,7 +63,7 @@ function game(){
         console.log(`The computer wins with a score of ${cpmputerCount} to ${playerCount}`);
     }
     else if(playerCount > computerCount){
-        console.log(`You wins with a score of ${playerCount} to ${computerCount}`);
+        console.log(`You win with a score of ${playerCount} to ${computerCount}`);
     }
     else{
         console.log(`Its a tie! The score is ${playerCount} to ${computerCount}`)

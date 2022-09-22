@@ -1,5 +1,6 @@
 
-
+let playerCount = 0;
+let computerCount = 0;
 function getRandomNum(range){
     return Math.floor(Math.random() * range);
 }
@@ -40,9 +41,11 @@ function checkWin(player, opponent){
 
 function playRound(playerSelection, computerSelection){
     if(checkWin(playerSelection, computerSelection) === true){
+        playerCount++;
         return (`You win! ${playerSelection} beats ${computerSelection}`);
     }
     else if(checkWin(computerSelection, playerSelection) === true){
+        computerCount++;
         return(`You lose! ${computerSelection} beats ${playerSelection}`);
     }
 
@@ -51,8 +54,24 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-let playerSelection = 'rock';
-let computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game(){
+    for(let i = 0; i < 5; i++){
+        let playerSelection = prompt('What do you choose?', '');
+        console.log(playRound(playerSelection.toLowerCase(), getComputerChoice()));
+    }
+    if(computerCount > playerCount){
+        console.log(`The computer wins with a score of ${cpmputerCount} to ${playerCount}`);
+    }
+    else if(playerCount > computerCount){
+        console.log(`You wins with a score of ${playerCount} to ${computerCount}`);
+    }
+    else{
+        console.log(`Its a tie! The score is ${playerCount} to ${computerCount}`)
+    }
+    
+
+}
+game();
+
 
 

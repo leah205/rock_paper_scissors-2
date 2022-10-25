@@ -1,0 +1,61 @@
+
+
+body{
+    background: black;
+    color: white;
+    font-size:1.5em;
+}
+div{
+    text-align: center;
+}
+.btns{
+    text-align: center;
+    margin: 200px 0px 50px 0px;
+    display: flex;
+    justify-content: center;  
+}
+
+.btn:hover{
+    height: 210px;
+    width: 210px;
+}
+.btn{
+    width: 200px;
+    height: 200px;
+    margin-right: 15px;
+    border-radius: 25px;
+    font-size: 1em;
+    background: white;
+}
+.images{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.btn img{
+    max-width: 150px;
+}
+.white-strip{
+    margin-top: 50px;
+    background: white;
+    padding: 20px 10px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+    height: 300px; 
+}
+.white-strip img{
+    height: 300px;
+}
+.game-results{
+    color: white;
+}
+.object-container{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between
+}
+.object-container img{
+    margin-top: 130px;
+    height: 100px;
+}
+

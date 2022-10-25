@@ -1,6 +1,20 @@
+const scissorsBtn = document.querySelector('.scissors');
+const paperBtn = document.querySelector('.paper');
+const rockBtn = document.querySelector('.rock');
+const objectContainer = document.querySelector('.object-container');
+const roundResults = document.querySelector('.round-results');
+const gameResults = document.querySelector('.game-results');
 
+function makeCopy(name){
+    let original  = document.querySelector(name);
+    return original.cloneNode();
+    
+}
+
+let gameCount = 0;
 let playerCount = 0;
 let computerCount = 0;
+
 function getRandomNum(range){
     return Math.floor(Math.random() * range);
 }
@@ -40,6 +54,10 @@ function checkWin(player, opponent){
 }
 
 function playRound(playerSelection, computerSelection){
+    if(gameCount === 5){
+        return;
+    }
+    gameCount++;
     if(checkWin(playerSelection, computerSelection) === true){
         playerCount++;
         return (`You win! ${playerSelection} beats ${computerSelection}`);
@@ -52,26 +70,60 @@ function playRound(playerSelection, computerSelection){
     else{
         return(`It's a tie! You both picked ${playerSelection}`)
     }
+    
 }
 
-function game(){
-    for(let i = 0; i < 5; i++){
-        let playerSelection = prompt('What do you choose?', '');
-        console.log(playRound(playerSelection.toLowerCase(), getComputerChoice()));
-    }
+
+function endGame(){
+
     if(computerCount > playerCount){
-        console.log(`The computer wins with a score of ${cpmputerCount} to ${playerCount}`);
+        return `The computer wins with a score of ${computerCount} to ${playerCount}`;
     }
     else if(playerCount > computerCount){
-        console.log(`You win with a score of ${playerCount} to ${computerCount}`);
+        return `You win with a score of ${playerCount} to ${computerCount}`;
     }
     else{
-        console.log(`Its a tie! The score is ${playerCount} to ${computerCount}`)
+        return `Its a tie! The score is ${playerCount} to ${computerCount}`;
     }
-    
+
 
 }
-game();
+
+function clickBtn(btn){
+    let computerSelection = getComputerChoice();
+    roundResults.textContent = playRound(btn, computerSelection);
+    while(objectContainer.firstChild){
+        objectContainer.removeChild(objectContainer.firstChild);
+    }
+    objectContainer.appendChild(makeCopy('.' + btn + '-img'));
+    objectContainer.appendChild(makeCopy('.' + computerSelection + '-img'));
+    if(gameCount === 5){
+        gameResults.textContent = endGame();
+        resetVariables()
+    }
+}
+
+scissorsBtn.addEventListener('click', () => {
+    clickBtn('scissors')
+});
+
+
+rockBtn.addEventListener('click', () => {
+    clickBtn('rock')
+});
+   
+paperBtn.addEventListener('click', () => {
+    clickBtn('paper')
+});
+
+function resetVariables(){
+    gameCOunt = 0;
+    playerCount = 0;
+    computerCount = 0;
+}
+
+
+
 
 
 

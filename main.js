@@ -4,6 +4,7 @@ const rockBtn = document.querySelector('.rock');
 const objectContainer = document.querySelector('.object-container');
 const roundResults = document.querySelector('.round-results');
 const gameResults = document.querySelector('.game-results');
+const newGameBtn = document.querySelector('.new-game');
 
 function makeCopy(name){
     let original  = document.querySelector(name);
@@ -90,18 +91,41 @@ function endGame(){
 }
 
 function clickBtn(btn){
+
+    if(gameCount == 5) return;
+
     let computerSelection = getComputerChoice();
     roundResults.textContent = playRound(btn, computerSelection);
-    while(objectContainer.firstChild){
-        objectContainer.removeChild(objectContainer.firstChild);
-    }
+
+    removeChildren(objectContainer);
+    
     objectContainer.appendChild(makeCopy('.' + btn + '-img'));
     objectContainer.appendChild(makeCopy('.' + computerSelection + '-img'));
     if(gameCount === 5){
         gameResults.textContent = endGame();
-        resetVariables()
+        
     }
 }
+
+function resetVariables(){
+    gameCount = 0;
+    playerCount = 0;
+    computerCount = 0;
+
+}
+
+function removeChildren(parent){
+    while(parent.firstChild){
+        parent.removeChild(parent.firstChild)
+    }
+}
+function resetGame(){
+    removeChildren(objectContainer);
+    resetVariables();
+    roundResults.textContent = '';
+    gameResults.textContent = '';
+}
+
 
 scissorsBtn.addEventListener('click', () => {
     clickBtn('scissors')
@@ -116,11 +140,12 @@ paperBtn.addEventListener('click', () => {
     clickBtn('paper')
 });
 
-function resetVariables(){
-    gameCOunt = 0;
-    playerCount = 0;
-    computerCount = 0;
-}
+newGameBtn.addEventListener('click', () =>{
+    resetGame();
+})
+
+
+
 
 
 

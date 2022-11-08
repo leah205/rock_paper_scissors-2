@@ -15,10 +15,7 @@ div{
     justify-content: center;  
 }
 
-.btn:hover{
-    height: 210px;
-    width: 210px;
-}
+
 .btn{
     width: 200px;
     height: 200px;
@@ -26,6 +23,7 @@ div{
     border-radius: 25px;
     font-size: 1em;
     background: white;
+    color: black;
 }
 .images{
     display: flex;
@@ -58,4 +56,10 @@ div{
     margin-top: 130px;
     height: 100px;
 }
+.new-game{
+    position: relative;
+    top: 30px;
+    padding: 10px;
+    left: 46%;
 
+}

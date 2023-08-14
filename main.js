@@ -81,7 +81,7 @@ function endGame(){
         return `The computer wins with a score of ${computerCount} to ${playerCount}`;
     }
     else if(playerCount > computerCount){
-        return `You win with a score of ${playerCount} to ${computerCount}`;
+        return `The player wins with a score of ${playerCount} to ${computerCount}`;
     }
     else{
         return `Its a tie! The score is ${playerCount} to ${computerCount}`;

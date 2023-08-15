@@ -14,7 +14,6 @@ function makeCopy(name){
     
 }
 
-let gameCount = 0;
 let playerCount = 0;
 let computerCount = 0;
 
@@ -57,10 +56,9 @@ function checkWin(player, opponent){
 }
 
 function findWinner(playerSelection, computerSelection){
-    if(gameCount === 5){
+    if(computerCount + playerCount === 5){
         return;
     }
-    gameCount++;
     if(checkWin(playerSelection, computerSelection) === true){
         playerCount++;
         return (`You win! ${playerSelection} beats ${computerSelection}`);
@@ -111,7 +109,7 @@ function updateScores(){
 
 function clickBtn(btn){
 
-    if(gameCount == 5) return;
+    if(computerCount + playerCount == 5) return;
 
     let computerSelection = getComputerChoice();
     roundResults.textContent = findWinner(btn, computerSelection);
@@ -121,14 +119,13 @@ function clickBtn(btn){
     
     objectContainer.appendChild(makeCopy('.' + btn + '-img'));
     objectContainer.appendChild(makeCopy('.' + computerSelection + '-img'));
-    if(gameCount === 5){
+    if(computerCount + playerCount === 5){
         gameResults.textContent = endGame();
         
     }
 }
 
 function resetVariables(){
-    gameCount = 0;
     playerCount = 0;
     computerCount = 0;
 

@@ -60,8 +60,34 @@ div{
 }
 .new-game{
     position: relative;
-    top: 30px;
-    padding: 10px;
-    left: 46%;
+    top: 15px;
+    margin: auto;
+    padding: 5px;
 
+}
+.game-container{
+    margin-top: 50px;
+    width: 100%;
+    justify-content: space-evenly;
+    display:flex;
+}
+
+.scoreboard{
+    display: block;
+    width: 300px;
+    height: 400px;
+    border: 1px solid white;
+}
+.middle-btns{
+    display: block;
+    text-align: center;
+    
+}
+.vl{
+    height: 50px;
+    border-left: 6px solid white;
+    margin-left: 10px;
+}
+.tally-container{
+    display:flex;
 }

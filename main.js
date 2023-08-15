@@ -5,6 +5,8 @@ const objectContainer = document.querySelector('.object-container');
 const roundResults = document.querySelector('.round-results');
 const gameResults = document.querySelector('.game-results');
 const newGameBtn = document.querySelector('.new-game');
+const playerTally = document.querySelector('.player .tally-container');
+const computerTally = document.querySelector('.computer .tally-container');
 
 function makeCopy(name){
     let original  = document.querySelector(name);
@@ -90,12 +92,30 @@ function endGame(){
 
 }
 
+function addTallyMarks(num, container){
+    removeChildren(container);
+    for(let i = 0; i <num; i++){
+        const tallyMark = document.createElement("div");
+        tallyMark.classList.add("vl");
+        container.appendChild(tallyMark);    
+    }
+}
+
+function updateScores(){
+    addTallyMarks(playerCount, playerTally);
+    addTallyMarks(computerCount, computerTally);
+    
+
+
+}
+
 function clickBtn(btn){
 
     if(gameCount == 5) return;
 
     let computerSelection = getComputerChoice();
     roundResults.textContent = findWinner(btn, computerSelection);
+    updateScores();
 
     removeChildren(objectContainer);
     
@@ -121,6 +141,8 @@ function removeChildren(parent){
 }
 function resetGame(){
     removeChildren(objectContainer);
+    removeChildren(playerTally);
+    removeChildren(computerTally);
     resetVariables();
     roundResults.textContent = '';
     gameResults.textContent = '';

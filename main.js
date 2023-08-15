@@ -7,6 +7,8 @@ const gameResults = document.querySelector('.game-results');
 const newGameBtn = document.querySelector('.new-game');
 const playerTally = document.querySelector('.player .tally-container');
 const computerTally = document.querySelector('.computer .tally-container');
+const introText = document.querySelector('.middle-btns p');
+
 
 function makeCopy(name){
     let original  = document.querySelector(name);
@@ -108,7 +110,7 @@ function updateScores(){
 }
 
 function clickBtn(btn){
-
+    introText.remove();
     if(computerCount + playerCount == 5) return;
 
     let computerSelection = getComputerChoice();

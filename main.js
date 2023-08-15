@@ -54,7 +54,7 @@ function checkWin(player, opponent){
 
 }
 
-function playRound(playerSelection, computerSelection){
+function findWinner(playerSelection, computerSelection){
     if(gameCount === 5){
         return;
     }
@@ -95,7 +95,7 @@ function clickBtn(btn){
     if(gameCount == 5) return;
 
     let computerSelection = getComputerChoice();
-    roundResults.textContent = playRound(btn, computerSelection);
+    roundResults.textContent = findWinner(btn, computerSelection);
 
     removeChildren(objectContainer);
     

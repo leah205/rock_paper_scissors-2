@@ -99,10 +99,9 @@ div{
     display:flex;
 }
 .middle-btns p{
-    color: white;
     margin-top: 75px;
     font-size: 1.5rem;  
 }
 .robot{
     margin-right: 20px;
-}
+} 

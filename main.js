@@ -111,6 +111,7 @@ function updateScores(){
 
 function clickBtn(btn){
     introText.remove();
+    console.log(introText.getAttribute("color"));
     if(computerCount + playerCount == 5) return;
 
     let computerSelection = getComputerChoice();
@@ -118,8 +119,6 @@ function clickBtn(btn){
     updateScores();
 
     removeChildren(objectContainer);
-    let temp = makeCopy('.' + btn + '-img');
-    console.log(temp.getAttribute("alt"));
     objectContainer.appendChild(makeCopy('.' + btn + '-img'));
     objectContainer.appendChild(makeCopy('.' + computerSelection + '-img'));
 

@@ -110,7 +110,7 @@ function updateScores(){
 }
 
 function clickBtn(btn){
-    introText.remove();
+    introText.style.display = "none";
     console.log(introText.getAttribute("color"));
     if(computerCount + playerCount == 5) return;
 
@@ -144,6 +144,7 @@ function resetGame(){
     removeChildren(playerTally);
     removeChildren(computerTally);
     resetVariables();
+    introText.style.display = "block";
     roundResults.textContent = '';
     gameResults.textContent = '';
 }

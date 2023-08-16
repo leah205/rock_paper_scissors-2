@@ -118,9 +118,11 @@ function clickBtn(btn){
     updateScores();
 
     removeChildren(objectContainer);
-    
+    let temp = makeCopy('.' + btn + '-img');
+    console.log(temp.getAttribute("alt"));
     objectContainer.appendChild(makeCopy('.' + btn + '-img'));
     objectContainer.appendChild(makeCopy('.' + computerSelection + '-img'));
+
     if(computerCount + playerCount === 5){
         gameResults.textContent = endGame();
         

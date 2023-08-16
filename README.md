@@ -1,0 +1,1 @@
+todo - intro should come back when you hit new game, change color to black instead of deleting intro

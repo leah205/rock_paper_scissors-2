@@ -80,7 +80,7 @@ function findWinner(playerSelection, computerSelection){
 function endGame(){
 
     if(computerCount > playerCount){
-        return `The computer wins with a score of ${computerCount} to ${playerCount}`;
+        return `The robot wins with a score of ${computerCount} to ${playerCount}`;
     }
     else if(playerCount > computerCount){
         return `The player wins with a score of ${playerCount} to ${computerCount}`;

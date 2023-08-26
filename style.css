@@ -1,4 +1,6 @@
-
+*{
+    font-family: "courier new", "serif";
+}
 
 body{
     background: black;
@@ -99,6 +101,7 @@ div{
     display:flex;
 }
 .middle-btns p{
+
     margin-top: 75px;
     font-size: 1.5rem;  
 }
